@@ -4,7 +4,7 @@
 # This script performs the following operations:
 # 1. Request JiraID input
 # 2. Verify values between QA and Stage files
-# 3. Checkout to main branch
+# 3. Checkout to master branch
 # 4. Git pull
 # 5. Checkout to new branch
 # 6. Update job_stage value to Prod
@@ -57,7 +57,7 @@ fi
 print_info "Using JiraID: $JIRA_ID"
 
 # Define file paths
-QA_FILE="envs/integration/env-2a/ts-csp-s3-file-sync-qa-values.yaml"
+QA_FILE="envs/box-dev/us-dev-2/ts-csp-s3-file-sync-qa-values.yaml"
 STAGE_FILE="envs/stage/stg-1/ts-csp-s3-file-sync-values.yaml"
 
 # Check if files exist
@@ -103,13 +103,13 @@ if [[ "$CURRENT_JOB_STAGE" == "Prod" ]]; then
     exit 0
 fi
 
-# Step 4: Checkout to main branch
-print_info "Checking out to main branch..."
-git checkout main
+# Step 4: Checkout to master branch
+print_info "Checking out to master branch..."
+git checkout master
 
 # Step 5: Git pull
-print_info "Pulling latest changes from main..."
-git pull origin main
+print_info "Pulling latest changes from master..."
+git pull origin master
 
 # Step 6: Checkout to new branch or existing branch
 BRANCH_NAME="tcsfsq-${JIRA_ID}-prod-update"

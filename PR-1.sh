@@ -3,7 +3,7 @@
 # Script to update QA file with new ET-Rules filename and set to Pre_prod
 # This script performs the following operations:
 # 1. Request JiraID and ET-Rules File Name inputs
-# 2. Checkout to main branch
+# 2. Checkout to master branch
 # 3. Git pull
 # 4. Checkout to new branch
 # 5. Update QA file: line 8 with ET-Rules filename, line 11 with "Pre_prod"
@@ -65,7 +65,7 @@ print_info "Using JiraID: $JIRA_ID"
 print_info "Using ET-Rules File Name: $ET_RULES_FILENAME"
 
 # Define file path
-QA_FILE="envs/integration/env-2a/ts-csp-s3-file-sync-qa-values.yaml"
+QA_FILE="envs/box-dev/us-dev-2/ts-csp-s3-file-sync-qa-values.yaml"
 
 # Check if file exists
 if [[ ! -f "$QA_FILE" ]]; then
@@ -73,13 +73,13 @@ if [[ ! -f "$QA_FILE" ]]; then
     exit 1
 fi
 
-# Step 2: Checkout to main branch
-print_info "Checking out to main branch..."
-git checkout main
+# Step 2: Checkout to master branch
+print_info "Checking out to master branch..."
+git checkout master
 
 # Step 3: Git pull
-print_info "Pulling latest changes from main..."
-git pull origin main
+print_info "Pulling latest changes from master..."
+git pull origin master
 
 # Step 4: Checkout to new branch
 BRANCH_NAME="tcsfsq-${JIRA_ID}-to-stage"

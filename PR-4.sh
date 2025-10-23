@@ -5,7 +5,7 @@
 # 1. Request JiraID input
 # 2. Verify QA job_stage is "Prod"
 # 3. Verify values between QA and Stage files
-# 4. Checkout to main branch
+# 4. Checkout to master branch
 # 5. Git pull
 # 6. Checkout to new branch
 # 7. Update Production ruleset from Stage
@@ -59,7 +59,7 @@ fi
 print_info "Using JiraID: $JIRA_ID"
 
 # Define file paths
-QA_FILE="envs/integration/env-2a/ts-csp-s3-file-sync-qa-values.yaml"
+QA_FILE="envs/box-dev/us-dev-2/ts-csp-s3-file-sync-qa-values.yaml"
 STAGE_FILE="envs/stage/stg-1/ts-csp-s3-file-sync-values.yaml"
 PROD_FILE="envs/prod/prd-1/ts-csp-s3-file-sync-values.yaml"
 
@@ -114,13 +114,13 @@ fi
 
 print_success "Ruleset values match: $QA_RULESET"
 
-# Step 4: Checkout to main branch
-print_info "Checking out to main branch..."
-git checkout main
+# Step 4: Checkout to master branch
+print_info "Checking out to master branch..."
+git checkout master
 
 # Step 5: Git pull
-print_info "Pulling latest changes from main..."
-git pull origin main
+print_info "Pulling latest changes from master..."
+git pull origin master
 
 # Step 6: Checkout to new branch
 BRANCH_NAME="tcsfs-${JIRA_ID}-to-prod"

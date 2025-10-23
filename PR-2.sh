@@ -3,7 +3,7 @@
 # Script to update ruleset value from QA to Stage environment
 # This script performs the following operations:
 # 1. Request JiraID input
-# 2. Checkout to main branch
+# 2. Checkout to master branch
 # 3. Git pull
 # 4. Checkout to new branch
 # 5. Read value from QA file
@@ -57,7 +57,7 @@ fi
 print_info "Using JiraID: $JIRA_ID"
 
 # Define file paths
-QA_FILE="envs/integration/env-2a/ts-csp-s3-file-sync-qa-values.yaml"
+QA_FILE="envs/box-dev/us-dev-2/ts-csp-s3-file-sync-qa-values.yaml"
 STAGE_FILE="envs/stage/stg-1/ts-csp-s3-file-sync-values.yaml"
 
 # Check if files exist
@@ -71,13 +71,13 @@ if [[ ! -f "$STAGE_FILE" ]]; then
     exit 1
 fi
 
-# Step 2: Checkout to main branch
-print_info "Checking out to main branch..."
-git checkout main
+# Step 2: Checkout to master branch
+print_info "Checking out to master branch..."
+git checkout master
 
 # Step 3: Git pull
-print_info "Pulling latest changes from main..."
-git pull origin main
+print_info "Pulling latest changes from master..."
+git pull origin master
 
 # Step 4: Checkout to new branch or existing branch
 BRANCH_NAME="tcsfs-${JIRA_ID}-stage-change"
