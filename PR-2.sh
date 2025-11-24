@@ -58,7 +58,7 @@ print_info "Using JiraID: $JIRA_ID"
 
 # Define file paths
 QA_FILE="envs/box-dev/us-dev-2/ts-csp-s3-file-sync-qa-values.yaml"
-STAGE_FILE="envs/stage/stg-1/ts-csp-s3-file-sync-values.yaml"
+STAGE_FILE="envs/com-stage/us-stg-1/ts-csp-s3-file-sync-values.yaml"
 
 # Check if files exist
 if [[ ! -f "$QA_FILE" ]]; then
